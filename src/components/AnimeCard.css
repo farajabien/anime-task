@@ -1,0 +1,106 @@
+.container {
+  display: grid;
+  width: 100%;
+  overflow-x: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 16px;
+  justify-items: center;
+  align-items: center;
+  /* position: relative; */
+}
+
+.anime-card {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+  background-color: #d5d2d2;
+  border-radius: 8px;
+  /* transform: scale(1); */
+  /* transform-origin: top left; */
+}
+.anime-card.expanded {
+  width: 300px;
+  height: 450px;
+  /* position: fixed; */
+  z-index: 2;
+
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%) scale(1.5); */
+}
+
+.anime-card div{
+  margin: 3px;
+}
+
+.anime-card img {
+  width: 100%;
+  height: 250px;
+  margin: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.anime-card .rank {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color:#ff73a9;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.anime-card .title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expandedItems{
+  padding: 1em 0;
+}
+
+.expandedItems > div{
+  padding: .4em 0;
+}
+
+
+
+
+
+@media (min-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
