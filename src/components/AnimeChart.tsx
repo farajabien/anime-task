@@ -51,7 +51,7 @@ export function AnimeChart(props: IAppProps) {
 
 	return (
 		<div className='chart'>
-			<AreaChart width={1200} height={400} data={chartData}>
+			<AreaChart width={1300} height={400} data={chartData}>
 				<defs>
 					<linearGradient id='color' x1='0' y1='0' x2='1' y2='0'>
 						<stop offset='5%' stopColor='#ffca9d' stopOpacity={0.5} />
@@ -60,7 +60,7 @@ export function AnimeChart(props: IAppProps) {
 				</defs>
 				<XAxis dataKey='year' tickFormatter={(year) => year.toString()} />
 				<YAxis />
-				<CartesianGrid strokeDasharray='3 3' />
+				<CartesianGrid vertical={false} strokeDasharray='3 0' />
 				<Tooltip
 					labelFormatter={(label) => {
 						const animeTitles = chartData.find(
