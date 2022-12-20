@@ -51,7 +51,9 @@ export function AnimeItem(props: IAppProps) {
 						</div>
 						<div className='airedUntil'>
 							<strong>Latest: </strong>
-							{props.airedUntil === undefined || null
+							{props.airedUntil === undefined ||
+							null ||
+							new Date(props.airedUntil).getTime() > Date.now()
 								? 'now'
 								: convertDate(props.airedUntil)}
 						</div>
