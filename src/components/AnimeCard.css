@@ -6,6 +6,8 @@
   grid-gap: 16px;
   justify-items: center;
   align-items: center;
+  
+  place-items: center;
 }
 
 .anime-card {
@@ -19,7 +21,7 @@
 }
 .anime-card.expanded {
   width: 300px;
-  height: 450px;
+  height: 420px;
   z-index: 2;
 }
 
@@ -64,7 +66,9 @@
 }
 
 .chart{
- margin: 3em 0;
+  margin: 3em auto;
+  text-align: center;
+  width: 100%;
 }
 
 .chart .animeTitles{
