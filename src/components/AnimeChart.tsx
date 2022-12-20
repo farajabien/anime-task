@@ -54,8 +54,8 @@ export function AnimeChart(props: IAppProps) {
 			<AreaChart width={1300} height={400} data={chartData}>
 				<defs>
 					<linearGradient id='color' x1='0' y1='0' x2='1' y2='0'>
-						<stop offset='5%' stopColor='#ffca9d' stopOpacity={0.5} />
-						<stop offset='95%' stopColor='#000a9f' stopOpacity={0.5} />
+						<stop offset='5%' stopColor='#ff73a9' stopOpacity={0.7} />
+						<stop offset='95%' stopColor='#000a9f' stopOpacity={0.7} />
 					</linearGradient>
 				</defs>
 				<XAxis dataKey='year' tickFormatter={(year) => year.toString()} />

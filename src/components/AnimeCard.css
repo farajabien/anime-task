@@ -16,13 +16,15 @@
   height: 300px;
   transition: all 0.3s ease-in-out;
   z-index: 1;
-  background-color: #d5d2d2;
+  background-color: #ffaecd;
   border-radius: 12px;
 }
 .anime-card.expanded {
   width: 300px;
   height: 420px;
   z-index: 2;
+  display: inline;
+  /* background-color: #ff73a9; */
 }
 
 .anime-card div{
