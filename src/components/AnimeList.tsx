@@ -55,7 +55,7 @@ export function AnimeList() {
 						/>
 					))}
 			</div>
-			<AnimeChart animes={animes} />
+			{animes && <AnimeChart animes={animes} />}
 		</>
 	)
 }
