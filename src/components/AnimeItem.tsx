@@ -15,8 +15,12 @@ interface IAppProps {
 export function AnimeItem(props: IAppProps) {
 	const [isExpanded, setIsExpanded] = useState(false)
 
+	useEffect(() => {
+		setIsExpanded(props.expanded)
+	}, [props.expanded])
+
 	const handleClick = () => {
-		setIsExpanded((prev) => !prev)
+		props.handleClick(props.title)
 	}
 
 	const convertDate = (date: string) => {

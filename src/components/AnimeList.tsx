@@ -22,6 +22,11 @@ interface Anime {
 export function AnimeList() {
 	const [animes, setAnimes] = useState<Anime[]>([])
 	const [expandedCard, setExpandedCard] = useState<string | null>(null)
+	const [clickedChildren, setClickedChildren] = useState<string[]>([])
+
+	useEffect(() => {
+		setClickedChildren([])
+	}, [expandedCard])
 
 	useEffect(() => {
 		getAnimeList().then((data) => setAnimes(data))
@@ -29,6 +34,7 @@ export function AnimeList() {
 
 	const handleClick = (title: string) => {
 		setExpandedCard(expandedCard === title ? null : title)
+		setClickedChildren([...clickedChildren, title])
 	}
 
 	return (

@@ -49,10 +49,6 @@ export function AnimeChart(props: IAppProps) {
 		setChartData(sortedData)
 	}, [props.animes])
 
-	useEffect(() => {
-		console.log('Chart data: ', chartData)
-	}, [chartData])
-
 	return (
 		<div className='chart'>
 			<AreaChart width={1200} height={400} data={chartData}>

@@ -17,8 +17,6 @@
   z-index: 1;
   background-color: #d5d2d2;
   border-radius: 8px;
-  /* transform: scale(1); */
-  /* transform-origin: top left; */
 }
 .anime-card.expanded {
   width: 300px;
@@ -60,6 +58,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
 .expandedItems{
