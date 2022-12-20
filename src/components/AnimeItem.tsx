@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './AnimeCard.css'
+import Modal from 'react-modal'
 
 interface IAppProps {
 	title: string
@@ -14,6 +15,7 @@ interface IAppProps {
 
 export function AnimeItem(props: IAppProps) {
 	const [isExpanded, setIsExpanded] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	useEffect(() => {
 		setIsExpanded(props.expanded)
@@ -21,6 +23,7 @@ export function AnimeItem(props: IAppProps) {
 
 	const handleClick = () => {
 		props.handleClick(props.title)
+		setIsModalOpen(true)
 	}
 
 	const convertDate = (date: string) => {
@@ -39,6 +42,42 @@ export function AnimeItem(props: IAppProps) {
 		<div
 			className={`anime-card ${isExpanded ? 'expanded' : ''}`}
 			onClick={handleClick}>
+			<Modal
+				isOpen={isExpanded}
+				style={{
+					content: {
+						top: '50%',
+						left: '50%',
+						right: 'auto',
+						bottom: 'auto',
+						marginRight: '-50%',
+						transform: 'translate(-50%, -50%)',
+						background: 'black',
+						transition: 'all 0.3s ease-in-out',
+						width: '300px',
+						height: '420px',
+						zIndex: 1000000,
+					},
+				}}>
+				<div className='expandedItems'>
+					<div className='airedFrom'>
+						<strong>Release: </strong>
+						{convertDate(props.airedFrom)}
+					</div>
+					<div className='airedUntil'>
+						<strong>Latest: </strong>
+						{props.airedUntil === undefined ||
+						null ||
+						new Date(props.airedUntil).getTime() > Date.now()
+							? 'now'
+							: convertDate(props.airedUntil)}
+					</div>
+					<div className='rating'>
+						<strong>Rating: </strong>
+						{props.rating}
+					</div>
+				</div>
+			</Modal>
 			<img src={props.imageCover} alt={props.title} />
 			<div>
 				<div className='title'>{props.title}</div>
