@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAnimeList } from '../api'
 import { AnimeItem } from './AnimeItem'
 import './AnimeCard.css'
+import { AnimeChart } from './AnimeChart'
 
 interface Anime {
 	rank: number
@@ -20,29 +21,35 @@ interface Anime {
 
 export function AnimeList() {
 	const [animes, setAnimes] = useState<Anime[]>([])
+	const [expandedCard, setExpandedCard] = useState<string | null>(null)
 
 	useEffect(() => {
 		getAnimeList().then((data) => setAnimes(data))
 	}, [])
 
-	useEffect(() => {
-		console.log('First: ', animes[0])
-	}, [animes])
+	const handleClick = (title: string) => {
+		setExpandedCard(expandedCard === title ? null : title)
+	}
 
 	return (
-		<div className='container'>
-			{animes &&
-				animes.map((anime, idx) => (
-					<AnimeItem
-						key={idx}
-						title={anime.title}
-						rank={anime.rank}
-						imageCover={anime.images.jpg.image_url}
-						airedFrom={anime.aired.from}
-						airedUntil={anime.aired.to}
-						rating={anime.rating}
-					/>
-				))}
-		</div>
+		<>
+			<div className='container'>
+				{animes &&
+					animes.map((anime, idx) => (
+						<AnimeItem
+							key={idx}
+							title={anime.title}
+							rank={anime.rank}
+							imageCover={anime.images.jpg.image_url}
+							airedFrom={anime.aired.from}
+							airedUntil={anime.aired.to}
+							rating={anime.rating}
+							handleClick={handleClick}
+							expanded={anime.title === expandedCard}
+						/>
+					))}
+			</div>
+			<AnimeChart animes={animes} />
+		</>
 	)
 }

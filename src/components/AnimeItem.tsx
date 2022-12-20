@@ -8,6 +8,8 @@ interface IAppProps {
 	airedFrom: string
 	airedUntil: string
 	rating: string
+	handleClick: (title: string) => void
+	expanded: boolean
 }
 
 export function AnimeItem(props: IAppProps) {
@@ -19,7 +21,6 @@ export function AnimeItem(props: IAppProps) {
 
 	const convertDate = (date: string) => {
 		const date_ = new Date(date)
-		// Use the toLocaleDateString method to format the date
 		const formattedDate = date_.toLocaleDateString('en-US', {
 			weekday: 'short',
 			month: 'short',
@@ -29,10 +30,6 @@ export function AnimeItem(props: IAppProps) {
 
 		return formattedDate
 	}
-
-	useEffect(() => {
-		const date = new Date(props.airedFrom)
-	}, [props])
 
 	return (
 		<div

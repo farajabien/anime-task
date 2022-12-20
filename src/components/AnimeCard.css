@@ -70,6 +70,18 @@
   padding: .4em 0;
 }
 
+.chart{
+ margin: 3em 0;
+}
+
+.chart .animeTitles{
+  text-align: center;
+  padding: 1em;
+}
+
+.chart .animeTitles div{
+  padding-top: 1em;
+}
 
 
 
